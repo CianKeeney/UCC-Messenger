@@ -15,7 +15,7 @@ class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 
     struct Constrants {
-        static let usersUrl = URL(string: "")
+        static let usersUrl = URL(string: "https://canvas.instructure.com/api/v1/courses?access_token=")
     }
     
     private let table: UITableView = {

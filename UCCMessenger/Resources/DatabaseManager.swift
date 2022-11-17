@@ -14,6 +14,12 @@ final class DatabaseManager {
     
     private let database = Database.database(url: "https://ucc-messenger-b5b64-default-rtdb.europe-west1.firebasedatabase.app").reference()
     
+    public func test() {
+        database.child("foo").setValue(["something": true])
+    }
+    
+    
+    
     
 }
 

@@ -11,6 +11,15 @@ import JGProgressHUD
 
 class ConversationsViewController: UIViewController {
     
+    @IBAction func NewConvoBtn(_ sender: UIBarButtonItem) {
+           let vc = ChatViewController()
+                   let nav = UINavigationController(rootViewController: vc)
+                   nav.modalPresentationStyle = .fullScreen
+                   present(nav, animated: false)
+    }
+    
+    private var users = ["Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7", "Person 8", "Person 9", "Person 10", "Person 11", "Person 12", "Person 13", "Person 14", "Person 15", "Person 16", "Person 17", "Person 18", "Person 19", "Person 20"]
+    
     private let spinner = JGProgressHUD(style: .dark)
     
     private let tableView: UITableView = {
@@ -73,12 +82,12 @@ class ConversationsViewController: UIViewController {
 
 extension ConversationsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for : indexPath)
-        cell.textLabel?.text = "Cian Keeney"
+        cell.textLabel?.text = users[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         return cell
     }
@@ -87,7 +96,7 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
         tableView.deselectRow(at: indexPath, animated: true)
         
         let vc = ChatViewController()
-        vc.title = "Cian Keeney"
+        vc.title = users[indexPath.row]
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }

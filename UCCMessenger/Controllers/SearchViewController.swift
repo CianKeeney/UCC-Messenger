@@ -10,6 +10,8 @@ import UIKit
 class SearchViewController: UIViewController, UISearchResultsUpdating {
     
     let searchController = UISearchController()
+    
+    private var users = ["Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7", "Person 8", "Person 9", "Person 10", "Person 11", "Person 12", "Person 13", "Person 14", "Person 15", "Person 16", "Person 17", "Person 18", "Person 19", "Person 20"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
     }
+    
     
     @objc(updateSearchResultsForSearchController:) func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
@@ -37,5 +40,8 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }
+
+

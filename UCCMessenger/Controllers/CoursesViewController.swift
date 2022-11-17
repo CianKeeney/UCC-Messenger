@@ -15,7 +15,7 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 
     struct Constrants {
-        static let coursesUrl = URL(string: "")
+        static let coursesUrl = URL(string: "https://canvas.instructure.com/api/v1/courses?access_token=")
     }
     
     private let table: UITableView = {

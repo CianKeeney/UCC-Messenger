@@ -25,6 +25,7 @@ class ChatViewController: MessagesViewController {
 
     private var messages = [Message]()
     private let selfSender = Sender(photoURL: "", senderId: "1", displayName: "Cian Keeney")
+    private let otherSender = Sender(photoURL: "", senderId: "2", displayName: "Fernando")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +35,9 @@ class ChatViewController: MessagesViewController {
                                messageId: "1",
                                sentDate: Date(),
                                kind: .text("Hey! What is up?")))
-        messages.append(Message(sender: selfSender,
+        messages.append(Message(sender: otherSender,
                                messageId: "1",
-                               sentDate: Date(),
+                               sentDate: Date() - 1000,
                                kind: .text("Yo what is up bro. It has been such a long time since we have talked. We should link soon!")))
         
         messagesCollectionView.messagesDataSource = self

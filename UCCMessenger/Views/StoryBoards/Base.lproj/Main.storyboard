@@ -17,7 +17,7 @@
                     <navigationItem key="navigationItem" title="Chats" id="0gR-j2-Bgj" customClass="Conversa" customModule="UCCMessenger" customModuleProvider="target">
                         <barButtonItem key="rightBarButtonItem" title="New Conversation" image="plus" catalog="system" id="tqf-z9-q1y">
                             <connections>
-                                <action selector="LogOutBtn:" destination="6UB-Se-8KU" id="2AU-gK-6mT"/>
+                                <action selector="NewConvoBtn:" destination="BYZ-38-t0r" id="L9u-DZ-dOG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

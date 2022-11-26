@@ -75,6 +75,17 @@ class LoginViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         return button
     }()
+    
+    private let forgotPasswordButton: UIButton = {
+        let button_forgot = UIButton()
+        button_forgot.setTitle("Forgot Password", for: .normal)
+        button_forgot.backgroundColor = .blue
+        button_forgot.setTitleColor(.systemBackground, for: .normal)
+        button_forgot.layer.cornerRadius = 12
+        button_forgot.layer.masksToBounds = true
+        button_forgot.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        return button_forgot
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +101,9 @@ class LoginViewController: UIViewController {
                               action: #selector(loginButtonTapped),
                               for: .touchUpInside)
         
+        forgotPasswordButton.addTarget(self,
+                                       action: #selector(forgotPasswordButtonTapped),
+                                       for: .touchUpInside)
         emailField.delegate = self
         passwordField.delegate = self
        // Add Subviews
@@ -98,6 +112,7 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
+        scrollView.addSubview(forgotPasswordButton)
         
     }
     
@@ -121,6 +136,10 @@ class LoginViewController: UIViewController {
                                   y: passwordField.bottom+10,
                                   width: scrollView.width-60,
                                  height: 52)
+        forgotPasswordButton.frame = CGRect(x: 30,
+                                            y: loginButton.bottom+10,
+                                            width: scrollView.width-60,
+                                            height: 52)
     }
     
     @objc private func loginButtonTapped() {
@@ -158,6 +177,7 @@ class LoginViewController: UIViewController {
         })
     }
     
+    
     func alertUserLoginError() {
         let alert = UIAlertController(title: "Woops",
                                       message: "Please enter all information to log in.",
@@ -168,11 +188,11 @@ class LoginViewController: UIViewController {
         present(alert, animated: true)
     }
     
-//    @objc private func didTapRegister() {
-//        let vc = RegisterViewController()
-//        vc.title = "Create Account"
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
+    @objc private func forgotPasswordButtonTapped() {
+        let vc = ForgotPasswordViewController()
+        vc.title = "Forgot Password"
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {

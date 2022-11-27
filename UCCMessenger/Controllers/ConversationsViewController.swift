@@ -12,10 +12,10 @@ import JGProgressHUD
 class ConversationsViewController: UIViewController {
     
     @IBAction func NewConvoBtn(_ sender: UIBarButtonItem) {
-           let vc = ChatViewController()
-                   let nav = UINavigationController(rootViewController: vc)
-                   nav.modalPresentationStyle = .fullScreen
-                   present(nav, animated: false)
+        let vc = ChatViewController()
+        vc.title = "New Chat"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private var users = ["Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7", "Person 8", "Person 9", "Person 10", "Person 11", "Person 12", "Person 13", "Person 14", "Person 15", "Person 16", "Person 17", "Person 18", "Person 19", "Person 20"]

@@ -141,39 +141,39 @@ class LoginViewController: UIViewController {
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         
-        func isValidEmail(email:String?) -> Bool {
-//            There’s some text before the @
-//            There’s some text after the @
-//            There’s at least 2 alpha characters after a .
-            
-            guard email != nil else { return false }
-            
-            let regEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-            
-            let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
-            if (email != nil) {
-                print("The email address is not the correct format.")
-            } else {
-                alertUserLoginErrorEmail()
-            }
-            
-            return pred.evaluate(with: email)
-        }
-        
-        func isValidPassword(password:String?) -> Bool {
-            guard password != nil else { return false }
-            // at least one uppercase,
-            // at least one digit
-            // at least one lowercase
-            // 8 characters total
-            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
-            if (password != nil) {
-                print("The password is not the correct format.")
-            } else {
-                alertUserLoginErrorPassword()
-            }
-            return passwordTest.evaluate(with: password)
-        }
+//        func isValidEmail(email:String?) -> Bool {
+////            There’s some text before the @
+////            There’s some text after the @
+////            There’s at least 2 alpha characters after a .
+//
+//            guard email != nil else { return false }
+//
+//            let regEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+//
+//            let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
+//            if (email != nil) {
+//                print("The email address is not the correct format.")
+//            } else {
+//                alertUserLoginErrorEmail()
+//            }
+//
+//            return pred.evaluate(with: email)
+//        }
+//
+//        func isValidPassword(password:String?) -> Bool {
+//            guard password != nil else { return false }
+//            // at least one uppercase,
+//            // at least one digit
+//            // at least one lowercase
+//            // 8 characters total
+//            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
+//            if (password != nil) {
+//                print("The password is not the correct format.")
+//            } else {
+//                alertUserLoginErrorPassword()
+//            }
+//            return passwordTest.evaluate(with: password)
+//        }
         
         guard let email = emailField.text,
                 let password = passwordField.text

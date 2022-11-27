@@ -156,6 +156,7 @@ class LoginViewController: UIViewController {
             } else {
                 alertUserLoginErrorEmail()
             }
+            
             return pred.evaluate(with: email)
         }
         
@@ -175,8 +176,7 @@ class LoginViewController: UIViewController {
         }
         
         guard let email = emailField.text,
-                let password = passwordField.text,
-                isValidEmail(email:emailField.text)
+                let password = passwordField.text
                else {
                 alertUserLoginError()
                 return

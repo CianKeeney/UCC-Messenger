@@ -79,11 +79,9 @@ class LoginViewController: UIViewController {
     private let forgotPasswordButton: UIButton = {
         let button_forgot = UIButton()
         button_forgot.setTitle("Forgot Password", for: .normal)
-        button_forgot.backgroundColor = .blue
-        button_forgot.setTitleColor(.systemBackground, for: .normal)
-        button_forgot.layer.cornerRadius = 12
+        button_forgot.setTitleColor(.black, for: .normal)
         button_forgot.layer.masksToBounds = true
-        button_forgot.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        button_forgot.titleLabel?.font = .systemFont(ofSize: 15)
         return button_forgot
     }()
 
@@ -93,10 +91,6 @@ class LoginViewController: UIViewController {
         title = "Log into stUtalk"
         view.backgroundColor = .systemBackground
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
-//                                                            style: .done,
-//                                                            target: self,
-//                                                            action: #selector(didTapRegister))
         loginButton.addTarget(self,
                               action: #selector(loginButtonTapped),
                               for: .touchUpInside)
@@ -147,8 +141,43 @@ class LoginViewController: UIViewController {
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         
-        guard let email = emailField.text, let password = passwordField.text,
-              !email.isEmpty, !password.isEmpty, password.count >= 6 else {
+        func isValidEmail(email:String?) -> Bool {
+//            There’s some text before the @
+//            There’s some text after the @
+//            There’s at least 2 alpha characters after a .
+            
+            guard email != nil else { return false }
+            
+            let regEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+            
+            let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
+            if (email != nil) {
+                print("The email address is not the correct format.")
+            } else {
+                alertUserLoginErrorEmail()
+            }
+            return pred.evaluate(with: email)
+        }
+        
+        func isValidPassword(password:String?) -> Bool {
+            guard password != nil else { return false }
+            // at least one uppercase,
+            // at least one digit
+            // at least one lowercase
+            // 8 characters total
+            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
+            if (password != nil) {
+                print("The password is not the correct format.")
+            } else {
+                alertUserLoginErrorPassword()
+            }
+            return passwordTest.evaluate(with: password)
+        }
+        
+        guard let email = emailField.text,
+                let password = passwordField.text,
+                isValidEmail(email:emailField.text)
+               else {
                 alertUserLoginError()
                 return
         }
@@ -168,6 +197,7 @@ class LoginViewController: UIViewController {
 
             guard let result = authResult, error == nil else {
                 print("Failed to log in user with email: \(email)")
+//                self.alertUserLoginErrorEmail()
                 return
             }
             
@@ -179,8 +209,28 @@ class LoginViewController: UIViewController {
     
     
     func alertUserLoginError() {
-        let alert = UIAlertController(title: "Woops",
+        let alert = UIAlertController(title: "Error",
                                       message: "Please enter all information to log in.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss",
+                                      style: .cancel,
+                                      handler: nil))
+        present(alert, animated: true)
+    }
+    
+    func alertUserLoginErrorEmail() {
+        let alert = UIAlertController(title: "Failed to login",
+                                      message: "Please enter a correct email address.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss",
+                                      style: .cancel,
+                                      handler: nil))
+        present(alert, animated: true)
+    }
+    
+    func alertUserLoginErrorPassword() {
+        let alert = UIAlertController(title: "Failed to login",
+                                      message: "Please enter a correct password. The password must be at least one uppercase letter, at least one digit, at least one lowercase, and must be at least 8 characters long. ",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss",
                                       style: .cancel,

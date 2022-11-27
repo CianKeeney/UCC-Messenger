@@ -77,7 +77,7 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
         
         let vc = ChatViewController()
-        vc.title = "Cian Keeney"
+        vc.title = courses[indexPath.row].name
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -50,7 +50,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         button.setTitleColor(.systemBackground, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
-        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         return button
     }()
 

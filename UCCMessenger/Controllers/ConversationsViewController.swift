@@ -43,6 +43,8 @@ class ConversationsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
+        
+//        DatabaseManager.shared.test()
         view.addSubview(tableView)
         view.addSubview(noConversationsLabel)
         setupTableView()

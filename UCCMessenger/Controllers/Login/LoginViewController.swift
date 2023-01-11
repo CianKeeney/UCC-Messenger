@@ -91,6 +91,11 @@ class LoginViewController: UIViewController {
         title = "Log into stUtalk"
         view.backgroundColor = .systemBackground
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(didTapRegister))
+        
         loginButton.addTarget(self,
                               action: #selector(loginButtonTapped),
                               for: .touchUpInside)
@@ -241,6 +246,12 @@ class LoginViewController: UIViewController {
     @objc private func forgotPasswordButtonTapped() {
         let vc = ForgotPasswordViewController()
         vc.title = "Forgot Password"
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func didTapRegister() {
+        let vc = RegisterViewController()
+        vc.title = "Register for stUtalk"
         navigationController?.pushViewController(vc, animated: true)
     }
 }

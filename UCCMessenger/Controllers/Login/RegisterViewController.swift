@@ -118,17 +118,9 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Log in"
+        title = "Register"
         view.backgroundColor = .systemBackground
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(didTapRegister))
-        registerButton.addTarget(self,
-                              action: #selector(registerButtonTapped),
-                              for: .touchUpInside)
-        
+    
         emailField.delegate = self
         passwordField.delegate = self
        // Add Subviews
@@ -217,22 +209,32 @@ class RegisterViewController: UIViewController {
                 return
             }
             
-            //Fire base login
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
-                guard authResult != nil, error == nil else {
-                    print("error creating user")
-                    return
-                }
+            
                 
-                DatabaseManager.shared.insertUser(with: ChatAppUser(
-                    firstname: firstName,
-                    lastname: lastName,
-                    emailAddress: email))
+                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+                    guard authResult != nil, error == nil else {
+                        print(email + " already exists in our database. ")
+                        let alert = UIAlertController(title: "Error", message: email + " already exists in our database. ", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+                                    debugPrint("OK")
+                                }))
+                        self?.present(alert, animated: true, completion: nil)
+                        return
+                    }
+                    
+                    DatabaseManager.shared.insertUser(with: ChatAppUser(
+                        firstname: firstName,
+                        lastname: lastName,
+                        emailAddress: email))
+                    
+                    print(firstName + " " + lastName + " with email " + email + " was created.")
+                    
+                    strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                })
                 
-                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             })
             
-        })
+            
         
        
     }

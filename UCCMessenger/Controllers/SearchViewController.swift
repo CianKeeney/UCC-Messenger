@@ -37,7 +37,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UITableVi
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Search users, conversations, and more"
+        search.searchBar.placeholder = "Search users"
         navigationItem.searchController = search
         
 

@@ -27,8 +27,11 @@ class ProfileViewController: UIViewController {
     }
     @IBOutlet var tableView: UITableView!
     
+//    let safeEmail = UserDefaults.standard.string(forKey: "email")
+//    let correct = UserDefaults.standard.value(email, forKey: "email")
+    
     // testing
-    let data = ["Name: Cian Keeney", "Course: Computer Science", "Modules: CS4000, CS4020, CS4040, CS4060", "School: Student's University", "DOB: 03/17/2001"]
+    let data = ["Name: Cian", "Course: Computer Science", "Modules: CS4000, CS4020, CS4040, CS4060", "School: Student's University", "DOB: 03/17/2001"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

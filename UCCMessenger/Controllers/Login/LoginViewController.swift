@@ -202,7 +202,7 @@ class LoginViewController: UIViewController {
 
             guard let result = authResult, error == nil else {
                 print("Failed to log in user with email: \(email)")
-//                self.alertUserLoginErrorEmail()
+                self?.alertUserLoginErrorEmail()
                 return
             }
             
@@ -228,7 +228,7 @@ class LoginViewController: UIViewController {
     
     func alertUserLoginErrorEmail() {
         let alert = UIAlertController(title: "Failed to login",
-                                      message: "Please enter a correct email address.",
+                                      message: "Please enter a valid email address.",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss",
                                       style: .cancel,

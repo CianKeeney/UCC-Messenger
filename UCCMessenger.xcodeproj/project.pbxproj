@@ -12,6 +12,8 @@
 		43496CD028FC636A00808661 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43496CCF28FC636A00808661 /* ChatViewController.swift */; };
 		4357B3C729228AC50008179D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B3C629228AC50008179D /* SearchViewController.swift */; };
 		4357B3CB29228B430008179D /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B3CA29228B430008179D /* NewPostViewController.swift */; };
+		43704D632992C9B600C78CAB /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43704D622992C9B600C78CAB /* AnswerViewController.swift */; };
+		43704D6529980E3700C78CAB /* AppStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43704D6429980E3700C78CAB /* AppStateModel.swift */; };
 		4377EA4A29329CFB0013188F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377EA4929329CFB0013188F /* ForgotPasswordViewController.swift */; };
 		4389A44A28E86C0C00F106B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4389A44928E86C0C00F106B4 /* AppDelegate.swift */; };
 		4389A44C28E86C0C00F106B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4389A44B28E86C0C00F106B4 /* SceneDelegate.swift */; };
@@ -39,6 +41,8 @@
 		43496CCF28FC636A00808661 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		4357B3C629228AC50008179D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4357B3CA29228B430008179D /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		43704D622992C9B600C78CAB /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
+		43704D6429980E3700C78CAB /* AppStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppStateModel.swift; path = "../../../../../Downloads/Messenger-Code/AppStateModel.swift"; sourceTree = "<group>"; };
 		4377EA4929329CFB0013188F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4389A44628E86C0C00F106B4 /* UCCMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UCCMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4389A44928E86C0C00F106B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				4389A47828E9DC6500F106B4 /* CoursesViewController.swift */,
 				4389A47C28E9DCA300F106B4 /* PeopleViewController.swift */,
 				4357B3C629228AC50008179D /* SearchViewController.swift */,
+				43704D622992C9B600C78CAB /* AnswerViewController.swift */,
 				43496CCF28FC636A00808661 /* ChatViewController.swift */,
 			);
 			path = Controllers;
@@ -145,6 +150,7 @@
 		4389A45F28E86D4E00F106B4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				43704D6429980E3700C78CAB /* AppStateModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,12 +326,14 @@
 				4389A47928E9DC6500F106B4 /* CoursesViewController.swift in Sources */,
 				4389A44E28E86C0C00F106B4 /* ConversationsViewController.swift in Sources */,
 				4389A47128E881F500F106B4 /* Extensions.swift in Sources */,
+				43704D6529980E3700C78CAB /* AppStateModel.swift in Sources */,
 				4357B3C729228AC50008179D /* SearchViewController.swift in Sources */,
 				4389A44A28E86C0C00F106B4 /* AppDelegate.swift in Sources */,
 				4389A46E28E873CC00F106B4 /* ProfileViewController.swift in Sources */,
 				432729D129268A7E00F8A5FC /* ConversationTableViewCell.swift in Sources */,
 				4389A44C28E86C0C00F106B4 /* SceneDelegate.swift in Sources */,
 				4377EA4A29329CFB0013188F /* ForgotPasswordViewController.swift in Sources */,
+				43704D632992C9B600C78CAB /* AnswerViewController.swift in Sources */,
 				43496CD028FC636A00808661 /* ChatViewController.swift in Sources */,
 				4389A46828E8734C00F106B4 /* PhotoViewerViewController.swift in Sources */,
 				4357B3CB29228B430008179D /* NewPostViewController.swift in Sources */,

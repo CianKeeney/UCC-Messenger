@@ -12,7 +12,7 @@ import JGProgressHUD
 class ConversationsViewController: UIViewController {
     
     @IBAction func NewConvoBtn(_ sender: UIBarButtonItem) {
-        let vc = ChatViewController()
+        let vc = ChatViewController(with: "emma@gmail.com")
         vc.title = "New Chat"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -97,7 +97,7 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let vc = ChatViewController()
+        let vc = ChatViewController(with: "cian364@gmail.com")
         vc.title = users[indexPath.row]
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)

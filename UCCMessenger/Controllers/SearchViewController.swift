@@ -7,77 +7,55 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
-    
-    private let table: UITableView = {
-        let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        return table
-    }()
-    
-    
-    let users = ["Person 1", "Person 2", "Person 3", "Person 4", "Person 5",
-                 "Person 6", "Person 7", "Person 8", "Person 9", "Person 10",
-                 "Person 11", "Person 12", "Person 13", "Person 14", "Person 15",
-                 "Person 16", "Person 17", "Person 18", "Person 19", "Person 20"]
-    var filterData: [String]!
-    
-    @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var tableView: UITableView!
-    
+class SearchViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource {
+
+//    let searchController = UISearchController(searchResultsController: self())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
-        view.addSubview(table)
-        table.delegate = self
-        table.dataSource = self
-        
-        let search = UISearchController(searchResultsController: nil)
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Search users"
-        navigationItem.searchController = search
-        
+        title = "Search"
+        view.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.frame = view.bounds
+        tableView.backgroundColor = .blue
+//        searchController.searchResultsUpdater = self
+//        navigationItem.searchController = searchController
+    }
 
-        filterData = users
-        
-       
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        table.frame = view.bounds
-    }
-    
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        let vc = searchController.searchResultsController as? Self
+        guard !text.isEmpty else {
+            vc?.tableView.isHidden = true
+            return
+        }
+        vc?.tableView.isHidden = false
         print(text)
     }
     
+    let tableView: UITableView = {
+        let table = UITableView()
+        table.register(UITableViewCell.self,
+                       forCellReuseIdentifier: "cell")
+        return table
+    }()
+
+    var users: [String] = Array(0...100).compactMap({ "user \($0)" })
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+                                                 for: indexPath)
         cell.textLabel?.text = users[indexPath.row]
-        cell.backgroundColor = UIColor.systemBackground
-        cell.selectionStyle = .none
-        cell.accessoryType = .disclosureIndicator
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let vc = ChatViewController()
-        vc.title = users[indexPath.row]
-        vc.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
 }
+
 
 

@@ -10,40 +10,75 @@ import MessageKit
 import InputBarAccessoryView
 
 struct Message: MessageType {
-    var sender: SenderType
-    var messageId: String
-    var sentDate: Date
-    var kind: MessageKind
+    public var sender: SenderType
+    public var messageId: String
+    public var sentDate: Date
+    public var kind: MessageKind
 }
 
 struct Sender: SenderType {
-    var photoURL: String
-    var senderId: String
-    var displayName: String
+    public var photoURL: String
+    public var senderId: String
+    public var displayName: String
 }
 
+//var clean_message : String = "This shit is so dumb"
+
+
 class ChatViewController: MessagesViewController {
+    
+    public static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .long
+        formatter.locale = .current
+        return formatter
+    }()
+    
+    public let otherUserEmail: String
+    public var isNewConversation = false
 
     private var messages = [Message]()
-    private let selfSender = Sender(photoURL: "", senderId: "1", displayName: "Cian Keeney")
-    private let otherSender = Sender(photoURL: "", senderId: "2", displayName: "Fernando")
+    private var selfSender: SenderType? {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return nil
+        }
+        
+        return Sender(photoURL: "",
+               senderId: email,
+               displayName: "Cian Keeney")
+    }
+    
+    init(with email:String) {
+        self.otherUserEmail = email
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private let otherSender = Sender(photoURL: "",
+                                     senderId: "2",
+                                     displayName: "Fernando")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-//        messages.append(Message(sender: selfSender,
-//                               messageId: "1",
-//                               sentDate: Date(),
-//                               kind: .text("Hey! What is up?")))
-//        messages.append(Message(sender: otherSender,
-//                               messageId: "1",
-//                               sentDate: Date() - 1000,
-//                               kind: .text("Yo what is up bro. It has been such a long time since we have talked. We should link soon!")))
-//
+        messages.append(Message(sender: selfSender!,
+                               messageId: "1",
+                               sentDate: Date(),
+                               kind: .text("Hello, how is your day?")))
+        messages.append(Message(sender: otherSender,
+                               messageId: "1",
+                               sentDate: Date() - 1000,
+                               kind: .text("My day was fine. How was yours?")))
+
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.reloadData()
         messageInputBar.delegate = self
     }
     
@@ -56,7 +91,9 @@ class ChatViewController: MessagesViewController {
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     @objc(inputBar:didPressSendButtonWith:) func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        guard !text.replacingOccurrences(of: " ", with: "").isEmpty else {
+        guard !text.replacingOccurrences(of: " ", with: "").isEmpty,
+        let selfSender = self.selfSender,
+        let messageId = createMessageId() else {
             return
         }
         
@@ -536,17 +573,55 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         print("Sending: \(clean_message)")
         
-//        if isNewConversation {
-//
-//        } else {
-//
-//        }
+        messages.append(Message(sender: selfSender,
+                                               messageId: "2",
+                                               sentDate: Date(),
+                                               kind: .text(clean_message)))
+        
+        print(messages)
+        // Assuming you have a reference to your message view controller
+        // and its collection view
+        messagesCollectionView.reloadData()
+
+        print("reload")
+        
+        
+        
+        if isNewConversation {
+            let message = Message(sender: selfSender,
+                                  messageId: messageId,
+                                  sentDate: Date(),
+                                  kind: .text(clean_message))
+            DatabaseManager.shared.createNewConversation(with: otherUserEmail, firstMessage: message, completion: { success in
+                if success {
+                    print("Message sent")
+                } else {
+                    print("Message failed to send")
+                }
+            })
+        } else {
+            
+        }
+    }
+    
+    private func createMessageId() -> String? {
+        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") else {
+            return nil
+        }
+        let dateString = Self.dateFormatter.string(from: Date())
+        let newIdentifier = "\(otherUserEmail)_\(currentUserEmail)_\(dateString)"
+        print("created message id: \(newIdentifier)")
+        return newIdentifier
     }
 }
 
 extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
     func currentSender() -> SenderType {
-        return selfSender
+        if let sender = selfSender {
+            return sender
+        }
+        fatalError("Self Sender is nil, email should be cached")
+        return Sender(photoURL: "", senderId: "12", displayName: "")
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {

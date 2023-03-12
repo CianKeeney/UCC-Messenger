@@ -107,7 +107,7 @@ class RegisterViewController: UIViewController {
     private let registerButton: UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = .systemGreen
         button.setTitleColor(.systemBackground, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
@@ -134,8 +134,6 @@ class RegisterViewController: UIViewController {
         
         imageView.isUserInteractionEnabled = true
         scrollView.isUserInteractionEnabled = true
-        
-        registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
         
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePic))
@@ -255,7 +253,6 @@ class RegisterViewController: UIViewController {
         let vc = RegisterViewController()
         vc.title = "Create Account"
         navigationController?.pushViewController(vc, animated: true)
-        print("Registered")
     }
     
 

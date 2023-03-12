@@ -22,10 +22,12 @@ struct Sender: SenderType {
     public var displayName: String
 }
 
-//var clean_message : String = "This shit is so dumb"
-
 
 class ChatViewController: MessagesViewController {
+    
+    let urlString = "https://gravatar.com/avatar/e7e384cf35e63ca025ac27a09a488c70?s=200&d=robohash&r=x"
+    
+
     
     public static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -41,10 +43,11 @@ class ChatViewController: MessagesViewController {
     private var messages = [Message]()
     private var selfSender: SenderType? {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            print("")
             return nil
         }
         
-        return Sender(photoURL: "",
+        return Sender(photoURL: urlString,
                senderId: email,
                displayName: "Cian Keeney")
     }
@@ -58,7 +61,7 @@ class ChatViewController: MessagesViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let otherSender = Sender(photoURL: "",
+    private let otherSender = Sender(photoURL: "https://gravatar.com/avatar/e7e384cf35e63ca025ac27a09a488c70?s=200&d=robohash&r=x",
                                      senderId: "2",
                                      displayName: "Fernando")
     
@@ -66,14 +69,54 @@ class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        messages.append(Message(sender: selfSender!,
-                               messageId: "1",
-                               sentDate: Date(),
-                               kind: .text("Hello, how is your day?")))
-        messages.append(Message(sender: otherSender,
-                               messageId: "1",
-                               sentDate: Date() - 1000,
-                               kind: .text("My day was fine. How was yours?")))
+        let randomInt = Int.random(in: 0..<3)
+        print(randomInt) // prints a random integer between 0 and 9
+
+        if randomInt == 0 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("Hello, how is your day?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("My day was fine. How was yours?")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("It was good.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you for asking.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("How are you getting on with your college work?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("It has been getting tough.")))
+        } else if randomInt == 1 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("These people are so annoying.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("I completely agree!")))
+        } else if randomInt == 2 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("Family Guy is so funny!")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("I hate family guy!")))
+        }
+        
 
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -581,7 +624,36 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         print(messages)
         // Assuming you have a reference to your message view controller
         // and its collection view
+        
+
         messagesCollectionView.reloadData()
+        
+    
+        
+        
+        
+        if (messages.count == 3) {
+            
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Did you finish the artifical intelligence assignment?")))
+        } else if messages.count == 5 {
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Can you please help me understand?")))
+        } else if messages.count == 7 {
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("How does a recurrent neural network work?")))
+        }
+        
+      
+        messagesCollectionView.reloadData()
+        inputBar.inputTextView.text = ""
+        messagesCollectionView.scrollToLastItem(animated: true)
 
         print("reload")
         
@@ -621,7 +693,7 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
             return sender
         }
         fatalError("Self Sender is nil, email should be cached")
-        return Sender(photoURL: "", senderId: "12", displayName: "")
+        return Sender(photoURL: "https://gravatar.com/avatar/e7e384cf35e63ca025ac27a09a488c70?s=200&d=robohash&r=x", senderId: "12", displayName: "")
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
@@ -631,6 +703,25 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
     }
+    
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+            
+            // Change the background color of messages sent by the user
+            if message.sender.senderId == selfSender?.senderId {
+                return .custom({ (view) in
+                    view.backgroundColor = UIColor(red: 0.8863, green: 0, blue: 0.251, alpha: 1.0)
+                    view.layer.cornerRadius = 12
+                    view.layer.masksToBounds = true
+//                    view.bubbleTailView.image = messageStyle.bubbleImage
+                })
+            } else {
+                view.backgroundColor = UIColor(red: 0.7333, green: 0.8, blue: 0, alpha: 1.0)
+                view.layer.cornerRadius = 12
+                view.layer.masksToBounds = true
+                return .bubbleTail(.bottomLeft, .curved)
+
+            }
+        }
     
     
 }

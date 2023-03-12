@@ -18,7 +18,7 @@ class ConversationsViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    private var users = ["Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7", "Person 8", "Person 9", "Person 10", "Person 11", "Person 12", "Person 13", "Person 14", "Person 15", "Person 16", "Person 17", "Person 18", "Person 19", "Person 20"]
+    private var users = ["Cian Keeney", "Dan Griffin", "Eoghan Daly, Cian Keeney", "Hamza Khan", "Emma Crowley", "Karim Smith", "John Smith", "Emma Crowley, Cian Keeney", "Timothy McGrath", "Daniel Kiely", "Emma Stubbs", "Kitty Smith", "Kate Geronimo", "Grant Geronimo", "Alex Eubank", "Lexx Little", "Soosh Brah", "Manic Mike"]
     
     private let spinner = JGProgressHUD(style: .dark)
     

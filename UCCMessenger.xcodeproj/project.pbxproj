@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		070FA7E4453AD7BC4F939C31 /* Pods_UCCMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A11D473CEB041A95CE08A09 /* Pods_UCCMessenger.framework */; };
 		432729D129268A7E00F8A5FC /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432729D029268A7E00F8A5FC /* ConversationTableViewCell.swift */; };
+		433620D629CB6D3E00AEEEE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433620D529CB6D3E00AEEEE0 /* ViewController.swift */; };
 		43496CD028FC636A00808661 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43496CCF28FC636A00808661 /* ChatViewController.swift */; };
 		4357B3C729228AC50008179D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B3C629228AC50008179D /* SearchViewController.swift */; };
 		4357B3CB29228B430008179D /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357B3CA29228B430008179D /* NewPostViewController.swift */; };
@@ -38,6 +39,7 @@
 		1B2326D3BFB50D2C3C7A573B /* Pods-UCCMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCCMessenger.release.xcconfig"; path = "Target Support Files/Pods-UCCMessenger/Pods-UCCMessenger.release.xcconfig"; sourceTree = "<group>"; };
 		2A11D473CEB041A95CE08A09 /* Pods_UCCMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCCMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		432729D029268A7E00F8A5FC /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		433620D529CB6D3E00AEEEE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43496CCF28FC636A00808661 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		4357B3C629228AC50008179D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4357B3CA29228B430008179D /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				4357B3C629228AC50008179D /* SearchViewController.swift */,
 				43704D622992C9B600C78CAB /* AnswerViewController.swift */,
 				43496CCF28FC636A00808661 /* ChatViewController.swift */,
+				433620D529CB6D3E00AEEEE0 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				4377EA4A29329CFB0013188F /* ForgotPasswordViewController.swift in Sources */,
 				43704D632992C9B600C78CAB /* AnswerViewController.swift in Sources */,
 				43496CD028FC636A00808661 /* ChatViewController.swift in Sources */,
+				433620D629CB6D3E00AEEEE0 /* ViewController.swift in Sources */,
 				4389A46828E8734C00F106B4 /* PhotoViewerViewController.swift in Sources */,
 				4357B3CB29228B430008179D /* NewPostViewController.swift in Sources */,
 			);

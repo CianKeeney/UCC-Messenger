@@ -76,7 +76,7 @@ class ChatViewController: MessagesViewController {
             messages.append(Message(sender: selfSender!,
                                    messageId: "1",
                                    sentDate: Date(),
-                                   kind: .text("Hello, how is your day?")))
+                                   kind: .text("Hi, how is your day?")))
             messages.append(Message(sender: otherSender,
                                    messageId: "1",
                                    sentDate: Date() - 1000,
@@ -101,20 +101,227 @@ class ChatViewController: MessagesViewController {
             messages.append(Message(sender: selfSender!,
                                    messageId: "1",
                                    sentDate: Date(),
-                                   kind: .text("These people are so annoying.")))
+                                   kind: .text("Whats up?")))
             messages.append(Message(sender: otherSender,
                                    messageId: "1",
                                    sentDate: Date() - 1000,
-                                   kind: .text("I completely agree!")))
+                                   kind: .text("Nothing much. Just got back from the gym now.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("That is good. I must start going to the gym.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("If you want to go with someone, I will go with you")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("Perfect thank you. ")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("You are a good friend to me 😀")))
         } else if randomInt == 2 {
             messages.append(Message(sender: selfSender!,
                                    messageId: "1",
                                    sentDate: Date(),
-                                   kind: .text("Family Guy is so funny!")))
+                                   kind: .text("I got some feedback from my assignment.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("The feedback was encouraging but I need to work harder")))
             messages.append(Message(sender: otherSender,
                                    messageId: "1",
                                    sentDate: Date() - 1000,
-                                   kind: .text("I hate family guy!")))
+                                   kind: .text("That is good to hear.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Did the lecturer say anything else.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("No, nothing else jsut to keep working hard.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Keep up the good work!")))
+        } else if randomInt == 3 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("4, how is your day?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("My day was fine. How was yours?")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("It was good.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you for asking.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("How are you getting on with your college work?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("It has been getting tough.")))
+        } else if randomInt == 4 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("5, how is your day?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("My day was fine. How was yours?")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("It was good.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you for asking.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("How are you getting on with your college work?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("It has been getting tough.")))
+        } else if randomInt == 5 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("6, how is your day?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("My day was fine. How was yours?")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("It was good.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you for asking.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("How are you getting on with your college work?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("It has been getting tough.")))
+        } else if randomInt == 6 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("7, how is your day?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("My day was fine. How was yours?")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("It was good.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you for asking.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("How are you getting on with your college work?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("It has been getting tough.")))
+        } else if randomInt == 7 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("8, how is your day?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("My day was fine. How was yours?")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("It was good.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you for asking.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("How are you getting on with your college work?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("It has been getting tough.")))
+        } else if randomInt == 8 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("9, how is your day?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("My day was fine. How was yours?")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("It was good.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you for asking.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("How are you getting on with your college work?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("It has been getting tough.")))
+        } else if randomInt == 9 {
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("10, how is your day?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("My day was fine. How was yours?")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("It was good.")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you for asking.")))
+            messages.append(Message(sender: selfSender!,
+                                   messageId: "1",
+                                   sentDate: Date(),
+                                   kind: .text("How are you getting on with your college work?")))
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("It has been getting tough.")))
         }
         
 
@@ -128,6 +335,7 @@ class ChatViewController: MessagesViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         messageInputBar.inputTextView.becomeFirstResponder()
+        
     }
     
 }
@@ -709,7 +917,7 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
             // Change the background color of messages sent by the user
             if message.sender.senderId == selfSender?.senderId {
                 return .custom({ (view) in
-                    view.backgroundColor = UIColor(red: 0.8863, green: 0, blue: 0.251, alpha: 1.0)
+                    view.backgroundColor = UIColor(red: 0.29, green: 0.83, blue: 0.79, alpha: 1.00)
                     view.layer.cornerRadius = 12
                     view.layer.masksToBounds = true
 //                    view.bubbleTailView.image = messageStyle.bubbleImage

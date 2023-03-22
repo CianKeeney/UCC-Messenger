@@ -18,6 +18,7 @@ class ConversationsViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
     private var users = ["Cian Keeney", "Dan Griffin", "Eoghan Daly, Cian Keeney", "Hamza Khan", "Emma Crowley", "Karim Smith", "John Smith", "Emma Crowley, Cian Keeney", "Timothy McGrath", "Daniel Kiely", "Emma Stubbs", "Kitty Smith", "Kate Geronimo", "Grant Geronimo", "Alex Eubank", "Lexx Little", "Soosh Brah", "Manic Mike"]
     
     private let spinner = JGProgressHUD(style: .dark)
@@ -49,6 +50,8 @@ class ConversationsViewController: UIViewController {
         view.addSubview(noConversationsLabel)
         setupTableView()
         fetchConversations()
+        self.tableView.rowHeight = 100.0
+//        self.tableView.separatorStyle = .none
     }
     
     override func viewDidLayoutSubviews() {
@@ -88,9 +91,20 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let images = [UIImage(named: "Image 1"), UIImage(named: "Image 2"), UIImage(named: "Image 3"), UIImage(named: "Image 4"), UIImage(named: "Image 5"), UIImage(named: "Image 6"), UIImage(named: "Image 7"), UIImage(named: "Image 8"), UIImage(named: "Image 9"), UIImage(named: "Image 10"), UIImage(named: "Image 11"), UIImage(named: "Image 12"), UIImage(named: "Image 13"), UIImage(named: "Image 15"), UIImage(named: "Image 16"), UIImage(named: "Image 17"), UIImage(named: "Image 18"), UIImage(named: "Image 19")]
+        
+//        let image = UIImage(named: "icon")
+//        cell.imageView.image = images[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for : indexPath)
         cell.textLabel?.text = users[indexPath.row]
-        cell.accessoryType = .disclosureIndicator
+        cell.accessoryType = .none
+        cell.imageView?.image = images[indexPath.row]
+//        cell.imageView?.image = images
+//        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height ?? 0) / 2
+        cell.imageView?.clipsToBounds = true
+        cell.imageView?.contentMode = .scaleAspectFit
         return cell
     }
     
@@ -102,4 +116,7 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
 }
+

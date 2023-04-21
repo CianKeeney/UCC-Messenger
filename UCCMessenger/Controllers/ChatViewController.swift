@@ -821,41 +821,39 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         let regex = try! NSRegularExpression(pattern: pattern, options: [.caseInsensitive])
         
         let clean_message = regex.stringByReplacingMatches(in: text, range: NSRange(location: 0, length: text.utf16.count), withTemplate: "****")
-        
-        print("Sending: \(clean_message)")
-        
+         
         messages.append(Message(sender: selfSender,
-                                               messageId: "2",
+                                               messageId: "1",
                                                sentDate: Date(),
                                                kind: .text(clean_message)))
         
-        print(messages)
-        // Assuming you have a reference to your message view controller
-        // and its collection view
-        
-
         messagesCollectionView.reloadData()
         
     
         
         
         
-        if (messages.count == 3) {
+        if (messages.count == 7) {
             
             messages.append(Message(sender: otherSender,
                                    messageId: "1",
                                    sentDate: Date() - 1000,
-                                   kind: .text("Did you finish the artifical intelligence assignment?")))
-        } else if messages.count == 5 {
+                                   kind: .text("Did you finish the software assignment?")))
+        } else if messages.count == 9 {
             messages.append(Message(sender: otherSender,
                                    messageId: "1",
                                    sentDate: Date() - 1000,
                                    kind: .text("Can you please help me understand?")))
-        } else if messages.count == 7 {
+        } else if messages.count == 11 {
             messages.append(Message(sender: otherSender,
                                    messageId: "1",
                                    sentDate: Date() - 1000,
-                                   kind: .text("How does a recurrent neural network work?")))
+                                   kind: .text("How does a UML diagram work?")))
+        } else if messages.count == 13 {
+            messages.append(Message(sender: otherSender,
+                                   messageId: "1",
+                                   sentDate: Date() - 1000,
+                                   kind: .text("Thank you very much!!!!")))
         }
         
       
@@ -868,17 +866,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         
         if isNewConversation {
-            let message = Message(sender: selfSender,
-                                  messageId: messageId,
-                                  sentDate: Date(),
-                                  kind: .text(clean_message))
-            DatabaseManager.shared.createNewConversation(with: otherUserEmail, firstMessage: message, completion: { success in
-                if success {
-                    print("Message sent")
-                } else {
-                    print("Message failed to send")
-                }
-            })
+            messagesCollectionView.reloadData()
         } else {
             
         }

@@ -107,7 +107,7 @@ class RegisterViewController: UIViewController {
     private let registerButton: UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = .black
         button.setTitleColor(.systemBackground, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true

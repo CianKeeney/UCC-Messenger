@@ -19,7 +19,7 @@ class ConversationsViewController: UIViewController {
     }
     
     
-    private var users = ["Chad Armstrong", "Dan Griffin", "Eoghan Daly", "Hamza Khan", "Emma Crowley", "Karim Smith", "John Smith", "Emma Smith", "Timothy McGrath", "Daniel Kiely", "Emma Stubbs", "Kitty Smith", "Kate Geronimo", "Grant Geronimo", "Alex Eubank", "Lexx Little", "Soosh Brah", "Manic Mike"]
+    private var users = ["Chad Armstrong", "Dan Griffin", "Eoghan Daly", "Hamza Khan", "Emma Smith", "Karim Smith", "John Smith", "Emma Smith", "Timothy McGrath", "Daniel Kiely", "Emma Stubbs", "Kitty Smith", "Kate Geronimo", "Grant Geronimo", "Alex Eubank", "Lexx Little", "Soosh Brah", "Manic Mike"]
     
     private let spinner = JGProgressHUD(style: .dark)
     

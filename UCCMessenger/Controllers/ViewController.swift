@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         return table
     }()
     
-     var models = ["Cian Keeney", "Dan Griffin", "Eoghan Daly, Cian Keeney", "Hamza Khan", "Emma Crowley", "Karim Smith", "John Smith", "Emma Crowley, Cian Keeney", "Timothy McGrath", "Daniel Kiely", "Emma Stubbs", "Kitty Smith", "Kate Geronimo", "Grant Geronimo", "Alex Eubank", "Lexx Little", "Soosh Brah", "Manic Mike"]
+     var models = ["Cian Keeney", "Dan Griffin", "Eoghan Daly, Cian Keeney", "Hamza Khan", "Emma Smith", "Karim Smith", "John Smith", "Emma Smith, Cian Keeney", "Timothy McGrath", "Daniel Kiely", "Emma Stubbs", "Kitty Smith", "Kate Geronimo", "Grant Geronimo", "Alex Eubank", "Lexx Little", "Soosh Brah", "Manic Mike"]
 
 //    var models: [String] = Array(0...100).compactMap({ "\($0) item" })
 

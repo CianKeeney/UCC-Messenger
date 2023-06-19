@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController {
 //    let correct = UserDefaults.standard.value(email, forKey: "email")
     
     // testing
-    let data = ["Name: Cian", "Course: Computer Science", "Modules: Cloud Computing, Introduction to Artificial Intelligence, Python Programming, Software Engineering", "School: Student's University", "DOB: 03/17/2001"]
+    let data = ["Name: John", "Course: Computer Science", "Modules: Cloud Computing, Introduction to Artificial Intelligence, Python Programming, Software Engineering", "School: Student's University", "DOB: 03/17/2001"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
